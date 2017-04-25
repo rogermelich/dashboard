@@ -2,12 +2,21 @@
 
 namespace App\Http\Controllers;
 
-use App\Task;
+use App;
 use Illuminate\Http\Request;
 
 class DashboardController extends Controller
 {
-    //
+    protected $dashboard;
+
+    /**
+     * DashboardController constructor.
+     */
+    public function __construct(App $dashboard)
+    {
+        $this->dashboard = $dashboard;
+    }
+
     /**
      *
      * @return \Illuminate\Contracts\View\Factory|\Illuminate\View\View
@@ -18,19 +27,34 @@ class DashboardController extends Controller
         return view('dashboard',$data);
     }
 
-    public function tasks()
+//    public function tasks()
+//    {
+//        return Task::all();
+//    }
+//
+//    public function tasksNumber()
+//    {
+//        return Task::all()->count();
+//    }
+//
+//    public function createRandomTask()
+//    {
+//        factory(\App\Task::class)->states('user')->create();
+//    }
+
+    public function dashboardblock($dashboard)
     {
-        return Task::all();
+        return $dashboard::all();
     }
 
-    public function tasksNumber()
+    public function dashboardblockNumber($dashboard)
     {
-        return Task::all()->count();
+        return $dashboard::all()->count();
     }
 
-    public function createRandomTask()
+    public function createRandomDashboardblock($dashboard)
     {
-        factory(\App\Task::class)->states('user')->create();
+        factory($dashboard)->states('user')->create();
     }
 
 }

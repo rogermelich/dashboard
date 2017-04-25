@@ -15,6 +15,7 @@ window.Vue.use(Vue2Filters)
 
 import VueEcho from 'vue-echo';
 
+// Per incorporar en tots els components Vue el Laravel Echo
 Vue.use(VueEcho, {
   broadcaster: 'pusher',
   key: '06d5f8319089048cd234',

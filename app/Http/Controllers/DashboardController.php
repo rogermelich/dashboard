@@ -24,7 +24,17 @@ class DashboardController extends Controller
     public function index()
     {
         $data = [];
+
+//        Eloquent
+        $data['labels1'] = ['January', 'February', 'March', 'April', 'May', 'June', 'July'];
+        $data['values1'] = [5, 10, 25, 2, 60, 80, 55];
         return view('dashboard',$data);
+    }
+
+    public function graph1() {
+        $data = [];
+        $data['labels3'] = ['Pepe', 'Maria', 'Josep', 'Tomas'];
+        $values['values3'] = [1, 5, 6, 5];
     }
 
 //    public function tasks()

@@ -83095,10 +83095,10 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
             type: String
         },
         labels: {
-            type: String
+            type: Array
         },
         values: {
-            type: String
+            type: Array
         },
         color: {
             type: String,
@@ -83107,7 +83107,9 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
     },
     data: function data() {
         return {
-            legend: ''
+            legend: '',
+            dataValues: [],
+            dataLabels: []
         };
     },
     mounted: function mounted() {
@@ -83126,7 +83128,7 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
 
         console.log('Component Mounted');
         var data = {
-            labels: this.labels,
+            labels: this.dataLabels,
             datasets: [{
                 label: "My First dataset",
                 fill: false,

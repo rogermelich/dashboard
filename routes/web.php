@@ -34,7 +34,7 @@ Route::group(['middleware' => 'auth'], function () {
 
     Route::get('create/random/{$dashboard}', 'DashboardController@createRandomDashboardblock');
 
-    Route::get('dashboard/graphs/1', 'DashboardController@graph1');
-
 
 });
+
+Route::get('dashboard/graphs/1', 'DashboardController@graph1');

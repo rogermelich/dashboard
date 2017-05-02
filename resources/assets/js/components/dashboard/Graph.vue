@@ -14,10 +14,10 @@
                 type: String
             },
             labels: {
-                type: String
+                type: Array
             },
             values: {
-                type: String
+                type: Array
             },
             color: {
                 type: String,
@@ -26,7 +26,9 @@
         },
         data() {
           return {
-              legend: ''
+              legend: '',
+              dataValues: [],
+              dataLabels: []
           }
         },
         mounted() {
@@ -46,7 +48,7 @@
 
             console.log('Component Mounted')
             let data = {
-                labels: this.labels,
+                labels: this.dataLabels,
                 datasets: [
                     {
                         label: "My First dataset",

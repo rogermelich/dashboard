@@ -31,6 +31,6 @@ class ReplyCreated
      */
     public function broadcastOn()
     {
-        return new PrivateChannel('dashboard');
+        return new Channel('dashboard');
     }
 }

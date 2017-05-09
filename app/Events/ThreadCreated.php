@@ -31,6 +31,6 @@ class ThreadCreated
      */
     public function broadcastOn()
     {
-        return new PrivateChannel('dashboard');
+        return new Channel('dashboard');
     }
 }

@@ -1,8 +1,5 @@
 <?php
-
 namespace App;
-
-
 trait RecordsActivity
 {
     /**
@@ -11,14 +8,23 @@ trait RecordsActivity
     protected static function bootRecordsActivity()
     {
         if (auth()->guest()) return;
-
         foreach (static::getActivitiesToRecord() as $event) {
             static::$event(function ($model) use ($event) {
                 $model->recordActivity($event);
             });
         }
+//        static::created(function ($model) {
+//            $model->recordActivity('created');
+//        });
+//
+//        static::updated(function ($model) {
+//            $model->recordActivity('updated');
+//        });
+//
+//        static::deleted(function ($model) {
+//            $model->recordActivity('deleted');
+//        });
     }
-
     /**
      * Fetch all model events that require activity recording.
      *
@@ -28,7 +34,6 @@ trait RecordsActivity
     {
         return ['created'];
     }
-
     /**
      * Record new activity for the model.
      *
@@ -41,7 +46,6 @@ trait RecordsActivity
             'type' => $this->getActivityType($event)
         ]);
     }
-
     /**
      * Fetch the activity relationship.
      *
@@ -51,7 +55,6 @@ trait RecordsActivity
     {
         return $this->morphMany('App\Activity', 'subject');
     }
-
     /**
      * Determine the activity type.
      *
@@ -61,7 +64,6 @@ trait RecordsActivity
     protected function getActivityType($event)
     {
         $type = strtolower((new \ReflectionClass($this))->getShortName());
-
         return "{$event}_{$type}";
     }
 }

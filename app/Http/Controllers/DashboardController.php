@@ -3,6 +3,11 @@
 namespace App\Http\Controllers;
 
 use App;
+use App\Activity;
+use App\Channel;
+use App\Reply;
+use App\Task;
+use App\Thread;
 use Cache;
 use Illuminate\Http\Request;
 
@@ -42,42 +47,104 @@ class DashboardController extends Controller
     }
 
 
-//    public function tasks()
-//    {
-//        return Task::all();
-//    }
-//
-//    public function tasksNumber()
-//    {
-//        return Task::all()->count();
-//    }
-//
-//    public function createRandomTask()
-//    {
-//        factory(\App\Task::class)->states('user')->create();
-//    }
-
-    public function dashboardblock($dashboard)
+    public function tasks()
     {
-        return $dashboard::all();
+        return Task::all();
     }
 
-    public function dashboardblockNumber($dashboard)
+    public function threads()
     {
-        $dash = null;
+        return Thread::all();
+    }
 
-        $this->$dashboard = $this->$dash;
-        $value = Cache::get('taskNumber', function ($dash) {
-            return $dash::all()->count();
+    public function channels()
+    {
+        return Channel::all();
+    }
+
+    public function Replies()
+    {
+        return Reply::all();
+    }
+
+    public function tasksNumber()
+    {
+        //return Task::all()->count();
+        $value = Cache::get('taskNumber', function () {
+            return Task::all()->count();
         });
 
         return $value;
     }
 
-    public function createRandomDashboardblock($dashboard)
+    public function threadsNumber()
     {
-        factory($dashboard)->states('user')->create();
+        $value = Cache::get('threadsNumber', function () {
+            return Thread::all()->count();
+        });
+
+        return $value;
     }
+
+    public function channelsNumber()
+    {
+        $value = Cache::get('channelsNumber', function () {
+            return Channel::all()->count();
+        });
+
+        return $value;
+    }
+
+    public function repliesNumber()
+    {
+        $value = Cache::get('repliesNumber', function () {
+            return Reply::all()->count();
+        });
+
+        return $value;
+    }
+
+    public function createRandomTask()
+    {
+        factory(\App\Task::class)->states('user')->create();
+    }
+
+    public function createRandomThread()
+    {
+        factory(\App\Thread::class)->create();
+    }
+
+    public function createRandomChannel()
+    {
+        factory(\App\Channel::class)->create();
+    }
+
+    public function createRandomReply()
+    {
+        factory(\App\Reply::class)->create();
+    }
+
+//    public function dashboardblock($dashboard)
+//    {
+//        return $dashboard::all();
+//    }
+//
+//    public function dashboardblockNumber($dashboard)
+//    {
+//        $dash = null;
+//
+//        $this->$dashboard = $this->$dash;
+//        $value = Cache::get('taskNumber', function ($dash) {
+//            return $dash::all()->count();
+//        });
+//
+//        return $value;
+//    }
+//
+//    public function createRandomDashboardblock($dashboard)
+//    {
+//        factory($dashboard)->states('user')->create();
+//    }
 
     public function fetchActivityFeed()
     {

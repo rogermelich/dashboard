@@ -2,14 +2,21 @@
 
 namespace App;
 
-use App\Filters\ThreadFilters;
-use Illuminate\Database\Eloquent\Builder;
+use App\Events\ThreadCreated;
 use Illuminate\Database\Eloquent\Model;
 
 class Thread extends Model
 {
     use RecordsActivity;
 
+    /**
+     * The event map for the model.
+     *
+     * @var array
+     */
+    protected $events = [
+        'created' => ThreadCreated::class
+    ];
     /**
      * Don't auto-apply mass assignment protection.
      *

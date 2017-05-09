@@ -2,11 +2,21 @@
 
 namespace App;
 
+use App\Events\ReplyCreated;
 use Illuminate\Database\Eloquent\Model;
 
 class Reply extends Model
 {
     use Favoritable, RecordsActivity;
+
+    /**
+     * The event map for the model.
+     *
+     * @var array
+     */
+    protected $events = [
+        'created' => ReplyCreated::class
+    ];
 
     /**
      * Don't auto-apply mass assignment protection.

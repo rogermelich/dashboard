@@ -148,7 +148,7 @@ class DashboardController extends Controller
 
     public function fetchActivityFeed()
     {
-        return Activity::all();
+        return Activity::orderbyDesc('updated_at')->get();
     }
 
 }

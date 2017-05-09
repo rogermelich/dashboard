@@ -43,15 +43,15 @@ Vue.prototype.trans = (key) => {
 }
 
 // Laravel AdminLTE vue components
-Vue.component('register-form', require('./components/auth/RegisterForm.vue'))
-Vue.component('login-form', require('./components/auth/LoginForm.vue'))
-Vue.component('email-reset-password-form', require('./components/auth/EmailResetPasswordForm.vue'))
-Vue.component('reset-password-form', require('./components/auth/ResetPasswordForm.vue'))
+Vue.component('register-form', require('./components/auth/RegisterForm.vue'));
+Vue.component('login-form', require('./components/auth/LoginForm.vue'));
+Vue.component('email-reset-password-form', require('./components/auth/EmailResetPasswordForm.vue'));
+Vue.component('reset-password-form', require('./components/auth/ResetPasswordForm.vue'));
 
-Vue.component('dashboard-small-box', require('./components/dashboard/SmallBox.vue'))
-Vue.component('dashboard-increase-button', require('./components/dashboard/IncreaseButton.vue'))
-Vue.component('activity-feed', require('./components/dashboard/ActivityFeed.vue'))
-Vue.component('graph', require('./components/dashboard/Graph.vue'))
+Vue.component('dashboard-small-box', require('./components/dashboard/SmallBox.vue'));
+Vue.component('dashboard-increase-button', require('./components/dashboard/IncreaseButton.vue'));
+Vue.component('activity-feed', require('./components/dashboard/ActivityFeed.vue'));
+Vue.component('graph', require('./components/dashboard/Graph.vue'));
 
 /**
  * Echo exposes an expressive API for subscribing to channels and listening

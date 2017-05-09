@@ -40630,46 +40630,50 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
 
 
 /* harmony default export */ __webpack_exports__["default"] = ({
-  data: function data() {
-    return {
-      nameData: '',
-      value: 0
-    };
-  },
-  props: {
-    name: {
-      type: String,
-      required: true
-    }
-  },
-  mounted: function mounted() {
-    var _this = this;
-
-    this.nameData = this.name;
-    this.value = this.dashboardValue(this.nameData);
-    console.log('Component smallbox mounted.');
-    console.log(this.eventName());
-    this.$echo.channel('dashboard').listen(this.eventName(), function (payload) {
-      console.log('Event received!!!!!!!!!');
-      console.log(payload);
-      _this.value++;
-    });
-  },
-
-  methods: {
-    eventName: function eventName() {
-      return __WEBPACK_IMPORTED_MODULE_0_voca___default.a.capitalize(__WEBPACK_IMPORTED_MODULE_1_pluralize___default.a.singular(this.name)) + 'Created';
+    data: function data() {
+        return {
+            nameData: '',
+            value: 0
+        };
     },
-    dashboardValue: function dashboardValue(name) {
-      var component = this;
-      axios.get('/dashboard/' + name + '/number').then(function (response) {
-        console.log(response.data);
-        component.value = response.data;
-      }).catch(function (error) {
-        console.log(error);
-      });
+    props: {
+        name: {
+            type: String,
+            required: true
+        },
+        color: {
+            type: String,
+            default: 'bg-aqua'
+        }
+    },
+    mounted: function mounted() {
+        var _this = this;
+
+        this.nameData = this.name;
+        this.value = this.dashboardValue(this.nameData);
+        console.log('Component smallbox mounted.');
+        console.log(this.eventName());
+        this.$echo.channel('dashboard').listen(this.eventName(), function (payload) {
+            console.log('Event received!!!!!!!!!');
+            console.log(payload);
+            _this.value++;
+        });
+    },
+
+    methods: {
+        eventName: function eventName() {
+            return __WEBPACK_IMPORTED_MODULE_0_voca___default.a.capitalize(__WEBPACK_IMPORTED_MODULE_1_pluralize___default.a.singular(this.name)) + 'Created';
+        },
+        dashboardValue: function dashboardValue(name) {
+            var component = this;
+            axios.get('/dashboard/' + name + '/number').then(function (response) {
+                console.log(response.data);
+                component.value = response.data;
+            }).catch(function (error) {
+                console.log(error);
+            });
+        }
     }
-  }
 });
 
 /***/ }),
@@ -82267,7 +82271,8 @@ module.exports={render:function (){var _vm=this;var _h=_vm.$createElement;var _c
   return _c('div', {
     staticClass: "col-lg-3 col-xs-6"
   }, [_c('div', {
-    staticClass: "small-box bg-aqua"
+    staticClass: "small-box",
+    class: _vm.color
   }, [_c('div', {
     staticClass: "inner"
   }, [_c('h3', [_vm._v(_vm._s(_vm.value))]), _vm._v(" "), _c('p', [_vm._v(_vm._s(_vm._f("capitalize")(_vm.name)))])]), _vm._v(" "), _vm._m(0), _vm._v(" "), _vm._m(1)])])
@@ -83276,15 +83281,22 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
             activities: []
         };
     },
-    computed: {
-        title: title
-    },
     mounted: function mounted() {
         console.log('Component activity feed!');
         this.fetchActivityFeed();
     },
 
     methods: {
+        getTitle: function getTitle(type) {
+            switch (type) {
+                case 'created_task':
+                    return 'Tasca creada';
+                case 'created_thread':
+                    return 'Thread creat';
+                default:
+                    return 'TODO title';
+            }
+        },
         fetchActivityFeed: function fetchActivityFeed() {
             console.log('fetchActivityFeedg executed!');
             var component = this;
@@ -83350,7 +83362,7 @@ module.exports={render:function (){var _vm=this;var _h=_vm.$createElement;var _c
       staticClass: "fa fa-clock-o"
     }), _vm._v(" " + _vm._s(activity.updated_at))]), _vm._v(" "), _c('h3', {
       staticClass: "timeline-header"
-    }, [_vm._v(_vm._s(_vm.title))]), _vm._v(" "), _c('div', {
+    }, [_vm._v(_vm._s(_vm.getTitle(activity.type)))]), _vm._v(" "), _c('div', {
       staticClass: "timeline-body"
     }, [_vm._v("\n                TODO DESCRIPTION " + _vm._s(activity.type) + "\n            ")]), _vm._v(" "), _vm._m(1, true)])])
   })], 2)

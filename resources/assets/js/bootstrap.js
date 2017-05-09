@@ -50,6 +50,7 @@ Vue.component('reset-password-form', require('./components/auth/ResetPasswordFor
 
 Vue.component('dashboard-small-box', require('./components/dashboard/SmallBox.vue'))
 Vue.component('dashboard-increase-button', require('./components/dashboard/IncreaseButton.vue'))
+Vue.component('activity-feed', require('./components/dashboard/ActivityFeed.vue'))
 Vue.component('graph', require('./components/dashboard/Graph.vue'))
 
 /**

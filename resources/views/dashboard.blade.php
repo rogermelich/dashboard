@@ -11,38 +11,11 @@
 
             <dashboard-small-box name="tasks"></dashboard-small-box>
 
-
             <dashboard-small-box name="threads" color="bg-green"></dashboard-small-box>
-            <!-- ./col -->
-            <div class="col-lg-3 col-xs-6">
-                <!-- small box -->
-                <div class="small-box bg-yellow">
-                    <div class="inner">
-                        <h3>44</h3>
 
-                        <p>New Channels</p>
-                    </div>
-                    <div class="icon">
-                        <i class="ion ion-person-add"></i>
-                    </div>
-                    <a href="#" class="small-box-footer">More info <i class="fa fa-arrow-circle-right"></i></a>
-                </div>
-            </div>
-            <!-- ./col -->
-            <div class="col-lg-3 col-xs-6">
-                <!-- small box -->
-                <div class="small-box bg-red">
-                    <div class="inner">
-                        <h3>65</h3>
+            <dashboard-small-box name="channels" color="bg-yellow"></dashboard-small-box>
 
-                        <p>Replies</p>
-                    </div>
-                    <div class="icon">
-                        <i class="ion ion-pie-graph"></i>
-                    </div>
-                    <a href="#" class="small-box-footer">More info <i class="fa fa-arrow-circle-right"></i></a>
-                </div>
-            </div>
+            <dashboard-small-box name="replies" color="bg-red"></dashboard-small-box>
         </div>
 
         <div class="row">
@@ -204,8 +177,10 @@
                     <!-- /.box-header -->
                     <div class="box-body">
 
-                        <dashboard-increase-button name="task"></dashboard-increase-button>
-                        <dashboard-increase-button name="thread"></dashboard-increase-button>
+                        <dashboard-increase-button name="tasks"></dashboard-increase-button>
+                        <dashboard-increase-button name="threads"></dashboard-increase-button>
+                        <dashboard-increase-button name="channels"></dashboard-increase-button>
+                        <dashboard-increase-button name="replies"></dashboard-increase-button>
 
                     </div>
                     <!-- /.box-body -->

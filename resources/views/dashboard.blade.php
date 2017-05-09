@@ -12,7 +12,7 @@
             <dashboard-small-box name="tasks"></dashboard-small-box>
 
 
-            <dashboard-small-box name="threads"></dashboard-small-box>
+            <dashboard-small-box name="threads" color="bg-green"></dashboard-small-box>
             <!-- ./col -->
             <div class="col-lg-3 col-xs-6">
                 <!-- small box -->
@@ -216,34 +216,35 @@
 
         <div class="row">
             <div class="col-lg-6">
-                <div>
-                    <graph
-
-                            :labels="{{ $labels1 }}"
-                            :values="{{ $values1 }}"
-                    ></graph>
-                </div>
+                <graph
+                        :labels="{{ $labels1 }}"
+                        :values="{{ $values1 }}"
+                        color="red"
+                ></graph>
             </div>
-
             <div class="col-lg-6">
-                <div>
-                    <graph
-                            :labels="{{ $labels3 }}"
-                            :values="{{ $values3 }}"
-                    ></graph>
-                </div>
+                <graph
+                        :labels="{{ $labels2 }}"
+                        :values="{{ $values2 }}"
+                ></graph>
             </div>
         </div>
+
         <div class="row">
             <div class="col-lg-3">
                 <graph url="/dashboard/graphs/1"></graph>
             </div>
             <div class="col-lg-9">
                 <graph
-                        :labels="['January', 'February', 'March', 'April', 'May', 'June', 'July]"
-                        :values="[5, 10, 25, 2, 60, 80, 55]"
-                        :color="red"
+                        :labels="['January', 'February', 'March', 'April', 'May', 'June', 'July']"
+                        :values="[67,42,445,23,23,76]"
                 ></graph>
+            </div>
+        </div>
+
+        <div class="row">
+            <div class="col-md-12">
+                <activity-feed></activity-feed>
             </div>
         </div>
 

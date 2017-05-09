@@ -12,7 +12,7 @@
             <div class="timeline-item">
                 <span class="time"><i class="fa fa-clock-o"></i> {{ activity.updated_at }}</span>
 
-                <h3 class="timeline-header">TODO TITLE</h3>
+                <h3 class="timeline-header">{{ title }}</h3>
 
                 <div class="timeline-body">
                     TODO DESCRIPTION {{ activity.type }}
@@ -33,6 +33,9 @@
             return {
                 activities : []
             }
+        },
+        computed: {
+            title
         },
         mounted() {
             console.log('Component activity feed!')

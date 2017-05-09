@@ -18,7 +18,7 @@ import VueEcho from 'vue-echo';
 // Per incorporar en tots els components Vue el Laravel Echo
 Vue.use(VueEcho, {
   broadcaster: 'pusher',
-  key: '06d5f8319089048cd234',
+  key: 'ae508872b8efe33e3d9a',
   cluster: 'eu',
   encrypted: true
 });
